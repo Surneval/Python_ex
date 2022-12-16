@@ -4,6 +4,9 @@
 
 length = int(input("Enter a number: "))
 seq = {}
-for i in range(1, length +1):
+sum = 0
+for i in range(1, length + 1):
     seq[i] = round((1 + 1/i)**i, 2)
-print(seq)
+    sum += seq[i]
+print(f"Sequence of numbers: {seq}")
+print(f"Sum of sequence members is: {sum}")
