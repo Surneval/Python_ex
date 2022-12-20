@@ -55,3 +55,10 @@ positions_int = str_int(positions_str)
 values_product = product(positions_int=positions_int, values_list=random_list)
 print(
     f"Product of random array members on the positions from txt equals {values_product}")
+
+
+##
+# a = file.readlines()
+# list_numb = list(map(str.strip.a))
+## strip - убрать переходы между строками int(a[i].strip()) map - сразу разметить элементы
+# print(int("\n12"))
