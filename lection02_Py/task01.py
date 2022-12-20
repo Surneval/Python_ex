@@ -50,7 +50,7 @@
 # print(list)
 
 # tuple:
-a = (3, 1, 2, 4)
+# a = (3, 1, 2, 4)
 # print(a)
 # print(a[0])
 # print(a[-2])
@@ -84,7 +84,7 @@ a = (3, 1, 2, 4)
 # for v, k in dictionary.items():
 #     print(f"{k}: {v}")
 
-###set - множества
+# ##set - множества
 # colors = {"red", "green", "blue"}
 # print(type(colors))
 # colors.add("red")
@@ -116,8 +116,8 @@ a = (3, 1, 2, 4)
 # print(q)
 # s = frozenset(a)
 
-list1 = [1, 2, 3, 4, 5]
-list2 = list1
+# list1 = [1, 2, 3, 4, 5]
+# list2 = list1
 # list1[0] = 123
 # list2[1] =345
 # for e in list1:
@@ -127,9 +127,9 @@ list2 = list1
 # for e in list2:
 #     print(e)
 
-#print(len(list1))
-list1.insert(1, 22)
-print(list1)
+# print(len(list1))
+# list1.insert(1, 22)
+# print(list1)
 # print(list1.pop(2))
 # print(list1)
 # print(list1.pop())
