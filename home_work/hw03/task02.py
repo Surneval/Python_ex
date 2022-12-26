@@ -33,3 +33,6 @@ new_list = sum_numb(list_random = random_list)
 print(f"Random list is: {random_list}")
 print(f"New list made of random list is: {new_list}")
 
+#middle  = length // 2 + length % 2
+# for i in range (middle):
+#     multi.append(list_num[i] * list_num[len(list_num) - i - 1])

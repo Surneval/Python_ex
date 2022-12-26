@@ -57,3 +57,12 @@ max_element = max_val(some_list = float_list)
 min_element = min_val(some_list = float_list)
 diff = max_element - min_element
 print(f"Difference between maximum fractional part and minumum fractional part is {diff}")
+
+#def frac(num):
+#    return round(num%1,2)
+
+#list_num = list(map(frac, list_num))
+#проверить число на деление на 1, если остаток не равен 0, то оно дробное
+#you may use the way of writing:
+#a, b = 3, 4
+#list_num_frac.pop(0)

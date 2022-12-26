@@ -22,3 +22,5 @@ random_list = random_numbers()
 print(random_list)
 sum_odd = sum_odd_el(list_random = random_list)
 print(f"Sum of elements with odd positions  = {sum_odd}")
+
+#list_num = [randint(0,20) for i in range(randint(5,10))]
