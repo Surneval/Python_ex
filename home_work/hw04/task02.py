@@ -21,5 +21,17 @@ def prime_fact (num):
 
 prime_factors = prime_fact(n)
 print(prime_factors)
-        
+
+#from the seminar
+#enter a number to find simple multiples
+n = int(input("Enter a number to finds it's simple multiples > "))
+list_num = []
+cur_mult = 2
+while n!= 1:
+    if n % cur_mult == 0:
+        list_num.append(cur_num)
+        m //= cur_mult
+    cur_mult += 1
+
+print(list_num)  
 

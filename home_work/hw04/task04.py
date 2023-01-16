@@ -27,3 +27,4 @@ print(result)
 data = open("C:/Users/nadez/Desktop/Python/home_work/hw04/file1.txt", "w+", encoding="utf-8")    
 data.write(result)
 data.close()
+

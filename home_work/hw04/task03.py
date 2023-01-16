@@ -22,3 +22,10 @@ new_list = list(set(random_list))
 print(new_list)
 new_list1 = delete(random_list)
 print(new_list1)
+
+#find numbers occuring only once
+once = []
+for i in random_list:
+    if random_list.count(i) == 1:
+        once.append(i)
+print(f"Numbers occuring only once are: {once}")

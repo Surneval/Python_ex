@@ -15,3 +15,8 @@ print(count)
 
 pi_corr = round(pi, count)
 print(f"With given accuracy {accur} pi number = {pi_corr}")
+
+#enter accuracy
+acc = input("Enter accuracy > ")
+round_val = len(acc.split(".")[1])
+print(round(math.pi, round_val))
