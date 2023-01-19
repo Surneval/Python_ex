@@ -1,15 +1,9 @@
-# Создайте программу для игры в ""Крестики-нолики"". Игра реализуется в терминале, игроки ходят поочередно,
-# необходимо вывести карту(как удобнее, можно например в виде списка, внутри которого будут 3 списка по 3 элемента,
-# каждый из которого обозначает соответсвующие клетки от 1 до 9), сделать проверку не занята ли клетка,
-# на которую мы хотим поставить крестик или нолик,
-# и проверку на победу (стоят ли крестики или нолик в ряд по диагонали, вертикали, горизонтали)
-
-#creating a field
-
+# Создайте программу для игры в ""Крестики-нолики"" - добавила бота
+#playing field
 maps = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 #maps = [0, 1, 2, 3, 4, 5, 6, 7, 8] positions
 
-#victiries
+#victories
 victories = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
 
 #print maps
@@ -26,16 +20,18 @@ def print_maps():
     print(maps[7], end = " ")
     print(maps[8]) 
 
-
+#first player
 import random
 def first_step():
     go_first = random.randint(1, 2)
     return go_first
 
+#round
 def round_step(step, symbol):
     ind = maps.index(step)
     maps[ind] = symbol
 
+# check does anybody win
 def check_victory():
     win = ""
     for i in victories:
@@ -47,30 +43,68 @@ def check_victory():
             win=""
     return win
 
-# main game
+#search for defenite combination 
+def check_lines(sum_x, sum_0):
+    step = ""
+    for combin in victories:
+        x = 0
+        o = 0
+        for i in range(3):
+            if maps[combin[i]] == "X":
+                x += 1
+            elif maps[combin[i]] == "0":
+                o += 1
+        if o == sum_0 and x == sum_x:
+            for j in range (3):
+                if maps[combin[j]] != "X" and maps[combin[j]] != "0":
+                    step = maps[combin[j]]
+    return step
 
-current_player = first_step()
+# game novigation for AI
+def ai_gaming():
+    step = ""
+    step = check_lines(2, 0)
+    if step == "":
+        step = check_lines(0, 2)
+    if step == "":
+        step = check_lines(1, 0)
+    if step == "":
+        if maps[4] != "X" and maps[4] != "0":
+            step = 5
+        elif maps[0] != "X" and maps[0] != "0":
+            step = 1
+        elif maps[2] !="X" and maps[2] != "0":
+            step = 3
+        elif maps[6] !="X" and maps[6] != "0":
+            step = 7
+        elif maps[8] !="X" and maps[8] != "0":
+            step = 9
+        elif maps[1] !="X" and maps[1] != "0":
+            step = 2
+        elif maps[3] !="X" and maps[3] != "0":
+            step = 4
+        elif maps[1] !="X" and maps[5] != "0":
+            step = 6
+        elif maps[7] !="X" and maps[7] != "0":
+            step = 8
+    return step
+
+
+# main game
 game_round = 1
-game_over = False
 count = 0
-print(f"Round-{game_round}")
-print(f"First step for palayer-{current_player}")
+print("Player-1 is bot")
+current_player = first_step()
+print(f"The first step is for Player-{current_player} > ")
+print(f"Game round - {game_round}")
+game_over = False
 while game_over == False:
     print_maps()
+    #if the first step is for bot
     if current_player == 1:
         symbol = "X"
-        try:
-            step = int(input(f"Player-{current_player} it's your turn.\nEnter a number from 1 to 9 > "))
-        except (ValueError, TypeError):
-            print("Invalid Input!!! Try Again") 
-            continue
-        if step < 1 or step > 9: 
-            print("Invalid Input!!! Try Again") 
-            continue
-        if maps[int(step)-1] == "X" or maps[int(step)-1] == "0":
-            print("Occupied!!! Try Again") 
-            continue
-             
+        step = ai_gaming()
+        print(f"Player-{current_player} choose position {step}")
     else:
         symbol = "0"
         try:
@@ -84,7 +118,6 @@ while game_over == False:
         if maps[int(step)-1] == "X" or maps[int(step)-1] == "0":
             print("Occupied!!! Try Again") 
             continue
-        
     round_step(step, symbol)
     count += 1
     win = check_victory()
@@ -100,4 +133,5 @@ while game_over == False:
             current_player = 2
         else:
             current_player = 1
+    
 
